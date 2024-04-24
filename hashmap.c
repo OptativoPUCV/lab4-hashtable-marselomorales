@@ -47,10 +47,7 @@ void insertMap(HashMap * map, char * key, void * value)
 
   while(map->buckets[posicion]!=NULL && map->buckets[posicion]->key != NULL)
     {
-      if(is_equal(map->buckets[posicion]->key,key))
-      {
-        
-      }
+      posicion = (posicion+1)%map->capacity; 
     }
   map->buckets[posicion] = createPair(key, value);
   map->size++;
@@ -68,7 +65,7 @@ HashMap * createMap(long capacity)
 {
   HashMap * map = (HashMap *)malloc(sizeof(HashMap));
 
-  mapa->buckets = (Pair **)calloc(capacity,sizeof(Pair *));
+  map->buckets = (Pair **)calloc(capacity,sizeof(Pair *));
 
   map->size = 0;
   map->capacity = capacity;

@@ -26,3 +26,9 @@ hashmap.c:71:3: error: ‘mapa’ undeclared (first use in this function); did y
 hashmap.c:71:3: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 53aaff4
+Wed 24 Apr 2024 08:43:50 PM UTC: 
+ hashmap.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+ tests:  5|4
+total_score: 30/70
+b7838c7
