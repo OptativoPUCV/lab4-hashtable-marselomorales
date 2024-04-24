@@ -88,3 +88,36 @@ hashmap.c:78:14: error: ‘oldArray’ undeclared (first use in this function); 
 cc1: all warnings being treated as errors
 Compilation failed
 be2a5b4
+Wed 24 Apr 2024 09:04:55 PM UTC: 
+ hashmap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:65:25: error: initialization of ‘HashMap **’ {aka ‘struct HashMap **’} from incompatible pointer type ‘Pair **’ [-Werror=incompatible-pointer-types]
+   65 |   HashMap **old_array = map->buckets;
+      |                         ^~~
+hashmap.c:71:48: error: ‘hashMap’ undeclared (first use in this function); did you mean ‘HashMap’?
+   71 |   map->buckets = calloc(nuevaCapacidad, sizeof(hashMap*));
+      |                                                ^~~~~~~
+      |                                                HashMap
+hashmap.c:71:48: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:71:56: error: expected expression before ‘)’ token
+   71 |   map->buckets = calloc(nuevaCapacidad, sizeof(hashMap*));
+      |                                                        ^
+hashmap.c:77:9: error: implicit declaration of function ‘insert’; did you mean ‘insertMap’? [-Werror=implicit-function-declaration]
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |         ^~~~~~
+      |         insertMap
+hashmap.c:77:33: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |                                 ^~
+hashmap.c:77:52: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘data’
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |                                                    ^~
+hashmap.c:78:14: error: ‘oldArray’ undeclared (first use in this function); did you mean ‘old_array’?
+   78 |         free(oldArray[i]);
+      |              ^~~~~~~~
+      |              old_array
+cc1: all warnings being treated as errors
+Compilation failed
+2e40e24

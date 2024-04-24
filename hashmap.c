@@ -62,13 +62,13 @@ void enlarge(HashMap * map)
   map->size = 0;
 
   //Conservamos el viejo mapa considerando la antigua capacidad de este
-  hashElemen **old_array = map->hashArray;
-  antiguaCapacidad = map->capacity;
+  HashMap **old_array = map->buckets;
+  long antiguaCapacidad = map->capacity;
   //Duplicamos la capacidad del mapa
-  nuevaCapacidad = map->capacity * 2;
+  long nuevaCapacidad = map->capacity * 2;
   //Reservamos la nueva capacidad del mapa
   map->capacity = nuevaCapacidad;
-  map->hashArray = calloc(nuevaCapacidad, sizeof(hashElemen*));  
+  map->buckets = calloc(nuevaCapacidad, sizeof(hashMap*));  
   //Recorremos el mapa viejo buscando los datos y los insertamos en el nuevo mapa
   for (int i = 0; i < antiguaCapacidad; i++)
     {
