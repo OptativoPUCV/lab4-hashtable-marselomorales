@@ -140,3 +140,9 @@ hashmap.c:77:73: error: ‘*(*(old_array + (sizetype)((long unsigned int)i * 8))
 cc1: all warnings being treated as errors
 Compilation failed
 ad7ae92
+Wed 24 Apr 2024 09:11:40 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  9|2
+total_score: 50/70
+3398e1d

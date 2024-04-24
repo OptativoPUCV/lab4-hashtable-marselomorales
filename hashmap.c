@@ -62,7 +62,7 @@ void enlarge(HashMap * map)
   map->size = 0;
 
   //Conservamos el viejo mapa considerando la antigua capacidad de este
-  HashMap **old_array = map->buckets;
+  Pair **old_array = map->buckets;
   long antiguaCapacidad = map->capacity;
   //Duplicamos la capacidad del mapa
   long nuevaCapacidad = map->capacity * 2;
@@ -74,7 +74,7 @@ void enlarge(HashMap * map)
     {
       if (old_array[i] != NULL)
       {
-        insertMap(map, old_array[i]->buckets->key, old_array[i]->buckets->value);
+        insertMap(map, old_array[i]->key, old_array[i]->value);
         free(old_array[i]);
         (map->size)++;
       }
