@@ -54,7 +54,34 @@ void insertMap(HashMap * map, char * key, void * value)
   map->current = posicion;
 }
 
-void enlarge(HashMap * map) {
+void enlarge(HashMap * map) 
+{
+  if(map==NULL) return;
+
+  //Inicializamos el size del mapa en 0
+  map->size = 0;
+
+  //Conservamos el viejo mapa considerando la antigua capacidad de este
+  hashElemen **old_array = map->hashArray;
+  antiguaCapacidad = map->capacity;
+  //Duplicamos la capacidad del mapa
+  nuevaCapacidad = map->capacity * 2;
+  //Reservamos la nueva capacidad del mapa
+  map->capacity = nuevaCapacidad;
+  map->hashArray = calloc(nuevaCapacidad, sizeof(hashElemen*));  
+  //Recorremos el mapa viejo buscando los datos y los insertamos en el nuevo mapa
+  for (int i = 0; i < antiguaCapacidad; i++)
+    {
+      if (old_array[i] != NULL)
+      {
+        insert(map, old_array[i]->key, old_array[i]->data);
+        free(oldArray[i]);
+        (map->size)++;
+      }
+    } 
+  //Liberamos la memoria del viejo mapa
+  free(old_array);
+  
     enlarge_called = 1; //no borrar (testing purposes)
 
 

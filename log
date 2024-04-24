@@ -44,3 +44,47 @@ Wed 24 Apr 2024 08:57:29 PM UTC:
  tests:  8|3
 total_score: 40/70
 764a53b
+Wed 24 Apr 2024 09:02:23 PM UTC: 
+ hashmap.c | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:65:3: error: unknown type name ‘hashElemen’
+   65 |   hashElemen **old_array = map->hashArray;
+      |   ^~~~~~~~~~
+hashmap.c:65:31: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘hashArray’
+   65 |   hashElemen **old_array = map->hashArray;
+      |                               ^~
+hashmap.c:66:3: error: ‘antiguaCapacidad’ undeclared (first use in this function)
+   66 |   antiguaCapacidad = map->capacity;
+      |   ^~~~~~~~~~~~~~~~
+hashmap.c:66:3: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:68:3: error: ‘nuevaCapacidad’ undeclared (first use in this function)
+   68 |   nuevaCapacidad = map->capacity * 2;
+      |   ^~~~~~~~~~~~~~
+hashmap.c:71:6: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘hashArray’
+   71 |   map->hashArray = calloc(nuevaCapacidad, sizeof(hashElemen*));
+      |      ^~
+hashmap.c:71:50: error: ‘hashElemen’ undeclared (first use in this function)
+   71 |   map->hashArray = calloc(nuevaCapacidad, sizeof(hashElemen*));
+      |                                                  ^~~~~~~~~~
+hashmap.c:71:61: error: expected expression before ‘)’ token
+   71 |   map->hashArray = calloc(nuevaCapacidad, sizeof(hashElemen*));
+      |                                                             ^
+hashmap.c:77:9: error: implicit declaration of function ‘insert’; did you mean ‘insertMap’? [-Werror=implicit-function-declaration]
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |         ^~~~~~
+      |         insertMap
+hashmap.c:77:33: error: request for member ‘key’ in something not a structure or union
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |                                 ^~
+hashmap.c:77:52: error: request for member ‘data’ in something not a structure or union
+   77 |         insert(map, old_array[i]->key, old_array[i]->data);
+      |                                                    ^~
+hashmap.c:78:14: error: ‘oldArray’ undeclared (first use in this function); did you mean ‘old_array’?
+   78 |         free(oldArray[i]);
+      |              ^~~~~~~~
+      |              old_array
+cc1: all warnings being treated as errors
+Compilation failed
+be2a5b4
