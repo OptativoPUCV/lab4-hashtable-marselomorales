@@ -121,3 +121,22 @@ hashmap.c:78:14: error: ‘oldArray’ undeclared (first use in this function); 
 cc1: all warnings being treated as errors
 Compilation failed
 2e40e24
+Wed 24 Apr 2024 09:10:08 PM UTC: 
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:65:25: error: initialization of ‘HashMap **’ {aka ‘struct HashMap **’} from incompatible pointer type ‘Pair **’ [-Werror=incompatible-pointer-types]
+   65 |   HashMap **old_array = map->buckets;
+      |                         ^~~
+hashmap.c:77:45: error: ‘*(*(old_array + (sizetype)((long unsigned int)i * 8)))->buckets’ is a pointer; did you mean to use ‘->’?
+   77 |         insertMap(map, old_array[i]->buckets->key, old_array[i]->buckets->value);
+      |                                             ^~
+      |                                             ->
+hashmap.c:77:73: error: ‘*(*(old_array + (sizetype)((long unsigned int)i * 8)))->buckets’ is a pointer; did you mean to use ‘->’?
+   77 |         insertMap(map, old_array[i]->buckets->key, old_array[i]->buckets->value);
+      |                                                                         ^~
+      |                                                                         ->
+cc1: all warnings being treated as errors
+Compilation failed
+ad7ae92

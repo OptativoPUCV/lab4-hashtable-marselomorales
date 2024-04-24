@@ -68,14 +68,14 @@ void enlarge(HashMap * map)
   long nuevaCapacidad = map->capacity * 2;
   //Reservamos la nueva capacidad del mapa
   map->capacity = nuevaCapacidad;
-  map->buckets = calloc(nuevaCapacidad, sizeof(hashMap*));  
+  map->buckets = calloc(nuevaCapacidad, sizeof(HashMap*));  
   //Recorremos el mapa viejo buscando los datos y los insertamos en el nuevo mapa
   for (int i = 0; i < antiguaCapacidad; i++)
     {
       if (old_array[i] != NULL)
       {
-        insert(map, old_array[i]->key, old_array[i]->data);
-        free(oldArray[i]);
+        insertMap(map, old_array[i]->buckets->key, old_array[i]->buckets->value);
+        free(old_array[i]);
         (map->size)++;
       }
     } 
