@@ -288,3 +288,9 @@ hashmap.c:165:66: error: expected statement before ‘)’ token
       |                                                                  ^
 Compilation failed
 bfe6645
+Sat 27 Apr 2024 08:26:46 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|0
+total_score: 70/70
+75ef5d2
