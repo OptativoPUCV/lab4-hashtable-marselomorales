@@ -110,7 +110,7 @@ void eraseMap(HashMap * map,  char * key)
   long inicio = posicion;
 
   do  {
-    if(map->buckets[posicion]->key != NULL && strcmp(map->buckets[posicion]->key,key) == 0)
+    if(map->buckets[posicion] != NULL && map->buckets[posicion]->key != NULL && strcmp(map->buckets[posicion]->key,key) == 0)
     {
       map->buckets[posicion]->key = NULL;
       map->size--;
